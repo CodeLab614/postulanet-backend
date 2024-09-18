@@ -2,7 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import morgan from "morgan";
+
 import { connectDB, corsConfig } from "./config";
+import { userRoutes } from "./routes";
 
 // Variables de entorno
 dotenv.config();
@@ -23,5 +25,6 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 // Rutas
+app.use("/api/v1/users", userRoutes);
 
 export default app;
